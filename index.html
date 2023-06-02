@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pomodoro</title>
+    <link rel="icon" type="image/svg" href="./logo/logo.svg">
+    <script src="https://kit.fontawesome.com/ca3cc7f826.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <nav>
+            <h1>Pomodoro timer</h1>
+            <div id="icons">
+                <i class="fa-solid fa-gear" onclick="settings.showModal()"></i>
+                <div class="theme_btn">
+                    <i class="fa-solid fa-moon" id="btnIcon"></i>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <div class="circular_progressbar">
+                <p id="timeLeft">00 : 00</p>
+            </div>
+            <i class="fa-solid fa-play" id="start"></i>
+        </main>
+
+        <section class="info">
+            <div class="stages">
+                    <li class="active" id="pomodoro">POMODORO</li>
+                    <li id="shortBreak">SHORT-BREAK</li>
+                    <li id="longBreak">LONG-BREAK</li>
+            </div>
+            <p>Pomodoro™ Technique is a time management method created by Francesco Cirillo in 1980s. This technique use timer to break down works into a set of intervals separated by breaks. Pomodoro technique increases productivity by taking short scheduled breaks regularly.</p>
+            <h3>Step by step guide</h3>
+            <p>Work for one pomodoro -> take a short break -> come back to work <br>After 4 pomodoro it's time for a long break. Reapeat until you done</p>
+        </section>
+
+    </section>
+
+
+    <dialog id="settings">
+        <section class="dialogHeader">
+            <h2>Settings</h2>
+            <i class="fa-solid fa-x" onclick="settings.close()"></i>
+        </section>
+        <section class="timeSettings">
+            <p>Pomodoro:</p><input type="number" id="pTime" value="25" min="1" max="60">
+            <p>Short-break:</p><input type="number" id="sBreak" value="5" min="1" max="60">
+            <p>Long-break:</p><input type="number" id="lBreak" value="10" min="1" max="60">
+        </section>
+        <div class="line"></div>
+        <section class="alarmSound">
+            <p>Choose alarm sound:</p>
+            <select id="alarmList" name="alarmList">
+                <option value="../audio/Warm Evening Outdoors.mp3">Warm evening</option>
+                <option value="../audio/Lake Wind Ambience.mp3">Lake Wind</option>
+                <option value="../audio/Summer Forest.mp3">Summer Forest</option>
+                <option value="../audio/Outside Night.mp3">Outside Night</option>
+            </select>
+        </section>
+        <div class="line"></div>
+        <div class="saveBtn" onclick="settings.close()">Save</div>
+    </dialog>
+
+    <dialog id="alarm">
+        <h2 id="alarmMsg">Time for break!</h2>
+        <div class="alarmBtn">ok</div>
+    </dialog>
+</body>
+<script src="./js/theme.js"></script>
+<script src="./js/app.js"></script>
+</html>
